@@ -2,6 +2,126 @@
 
 This repository contains solutions for Docker Lab tasks.
 
+
+# Difference Between CMD & ENTRYPOINT
+
+## CMD
+
+CMD is used to provide default commands for a container.
+
+- It can be overridden when running the container.
+- Used for optional/default execution commands.
+
+Example:
+
+```dockerfile
+CMD ["python","app.py"]
+```
+
+Run:
+
+```bash
+docker run myapp
+```
+
+Docker executes:
+
+```bash
+python app.py
+```
+
+Override example:
+
+```bash
+docker run myapp python test.py
+```
+
+---
+
+## ENTRYPOINT
+
+ENTRYPOINT defines the main executable command for the container.
+
+- It is harder to override.
+- Used when the container should always run a specific executable.
+
+Example:
+
+```dockerfile
+ENTRYPOINT ["python"]
+```
+
+Run:
+
+```bash
+docker run myapp app.py
+```
+
+Docker executes:
+
+```bash
+python app.py
+```
+
+---
+
+## Main Difference
+
+| CMD | ENTRYPOINT |
+|---|---|
+| Default command | Main executable |
+| Easily overridden | Less flexible |
+| Optional behavior | Fixed behavior |
+
+---
+
+# Difference Between COPY & ADD
+
+## COPY
+
+COPY is used to copy files and folders from the host machine into the container.
+
+Example:
+
+```dockerfile
+COPY . /app
+```
+
+This copies all files into `/app`.
+
+---
+
+## ADD
+
+ADD works like COPY but has extra features:
+
+- Can extract compressed files automatically.
+- Can download files from URLs.
+
+Example:
+
+```dockerfile
+ADD test.tar.gz /app
+```
+
+This extracts the archive automatically.
+
+---
+
+## Main Difference
+
+| COPY | ADD |
+|---|---|
+| Simple file copy | Copy + extra features |
+| Preferred in most cases | Used for advanced operations |
+| More predictable | More complex |
+
+---
+
+## Best Practice
+
+Use `COPY` unless you specifically need features provided by `ADD`.
+
 ---
 
 # Problem 1

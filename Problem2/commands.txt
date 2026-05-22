@@ -12,6 +12,10 @@ docker ps -a
 
 docker stop CONTAINER_ID
 
+// docker stop a87571ad6b94
+
 docker rm CONTAINER_ID
+
+// docker rm d3cbbbe6cc7f  
 
 docker container prune -f
