@@ -1,0 +1,9 @@
+docker build -t python-app .
+
+docker run python-app
+
+docker login
+
+docker tag python-app mohamedmm67/python-app
+
+docker push mohamedmm67/python-app

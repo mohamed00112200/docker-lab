@@ -1,0 +1,5 @@
+docker run -d -p 8080:80 --name mynginx nginx
+
+docker cp index.html mynginx:/usr/share/nginx/html/
+
+docker commit mynginx IMAGE_NAME

@@ -1,0 +1,9 @@
+docker run hello-world
+
+docker ps -a
+
+docker start CONTAINER_ID
+
+docker rm CONTAINER_ID
+
+docker rmi hello-world

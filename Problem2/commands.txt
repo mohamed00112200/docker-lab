@@ -1,0 +1,17 @@
+docker run -it ubuntu bash
+
+echo docker
+
+touch hello-docker
+
+ls
+
+exit
+
+docker ps -a
+
+docker stop CONTAINER_ID
+
+docker rm CONTAINER_ID
+
+docker container prune -f
